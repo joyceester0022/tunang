@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kad Jemputan Tunang</title>
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #fff5f5;
+    padding: 30px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 0 15px #ccc;
+    animation: masuk 1.5s ease;
+}
+
+@keyframes masuk {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    color: #b8860b;
+    animation: turun 1s ease;
+}
+
+@keyframes turun {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+button {
+    background: #b8860b;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.sampul {
+    font-size: 80px;
+    text-align: center;
+    margin-top: 100px;
+    cursor: pointer;
+    animation: goyang 2s infinite;
+}
+
+#kad {
+    display: none;
+}
+
+form {
+    margin-top: 25px;
+    text-align: center;
+}
+
+input, select, textarea {
+    width: 90%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 1px solid #d4af37;
+    border-radius: 12px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
+}
+
+label {
+    font-weight: bold;
+    color: #8b6914;
+}
+
+form button {
+    margin-top: 20px;
+}
+
+.card {
+    background: white;
+    padding: 40px 25px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    margin: auto;
+    box-shadow: 0 0 15px #ccc;
+    animation: masuk 1.5s ease;
+}
+
+form {
+    margin-bottom: 30px;
+}
+
+form button {
+    margin-bottom: 20px;
+}
+
+a button {
+    margin-top: 10px;
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+<div class="sampul" onclick="bukaKad()">
+    💌
+    <p>Klik untuk buka jemputan</p>
+</div>
+
+<div class="card" id="kad">
+
+<h1>Engagement</h1>
+
+<h2>Calvie & Joyce </h2>
+
+<img src="tunang.jpeg" width="300" style="border-radius:20px;">
+
+<p>Dengan penuh kesyukuran, kami menjemput anda ke majlis pertunangan kami.</p>
+
+<p>
+📅 Tarikh: 5 September 2026<br>
+⏰ Ketibaan: 11:00 Pagi<br>
+📍 Tempat: Sugud Timpangoh,Penampang 
+(BMB HOMESTAY)
+</p>
+
+<h3>Menuju Hari Bahagia</h3>
+
+<h2 id="countdown"></h2>
+
+<script>
+var tarikhMajlis = new Date("September 5, 2026 11:00:00").getTime();
+
+var kiraan = setInterval(function() {
+
+    var sekarang = new Date().getTime();
+    var beza = tarikhMajlis - sekarang;
+
+    var hari = Math.floor(beza / (1000 * 60 * 60 * 24));
+    var jam = Math.floor((beza % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minit = Math.floor((beza % (1000 * 60 * 60)) / (1000 * 60));
+    var saat = Math.floor((beza % (1000 * 60)) / 1000);
+
+    document.getElementById("countdown").innerHTML =
+    hari + " Hari " + jam + " Jam " + minit + " Minit " + saat + " Saat";
+
+}, 1000);
+</script>
+
+
+<h3>Sahkan Kehadiran</h3>
+
+<form action="https://formspree.io/f/xlgqkdzn" method="POST">
+
+<label>Nama Tetamu</label><br>
+<input type="text" name="Nama" required>
+<br><br>
+
+<label>Kehadiran</label><br>
+<select name="Kehadiran" required>
+    <option value="">Pilih</option>
+    <option value="Hadir">Hadir</option>
+    <option value="Tidak Hadir">Tidak Hadir</option>
+</select>
+
+<br><br><br><br>
+
+<label>Ucapan untuk pasangan</label><br>
+<textarea name="Ucapan" rows="4"></textarea>
+
+<br><br><br><br>
+
+<button type="submit">Hantar Ucapan 📝</button>
+
+</form>
+<a href="https://maps.app.goo.gl/WsE3JJa4ftWFX4L7A" target="_blank">
+<button>Buka Lokasi 📍</button>
+</a>
+
+</div>
+
+<script>
+function bukaKad(){
+    document.querySelector(".sampul").style.display="none";
+    document.getElementById("kad").style.display="block";
+}
+</script>
+
+
+</body>
+</html>
