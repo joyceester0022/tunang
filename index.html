@@ -249,9 +249,10 @@ var kiraan = setInterval(function() {
 function bukaKad(){
     document.querySelector(".sampul").style.display="none";
     document.getElementById("kad").style.display="block";
+    document.querySelector("audio").play(); // mula main lagu bila klik
 }
-  
 </script>
+
   
 <audio autoplay loop>
   <source src="lagu.mp3" type="audio/mpeg">
